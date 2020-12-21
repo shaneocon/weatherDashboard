@@ -65,21 +65,21 @@ $(function () {
         $("#humidity").text(data.main.humidity + " %");
 
          //-------- SAVE ON SUBMIT FUNCTION --------------- //
-    $("#search-form").on("submit", function () {
-        userInput = $(this).siblings(".search-sibling").val().trim();
+    $("#search-input").on("submit", function () {
+        userInput = $(this).siblings(".input-group-append").val();
         console.log(userInput);
        
         localStorage.setItem(JSON.stringify(userInput));
     })
-
+        // ----------------------------------------------- //
     //------- CLEAR BUTTON FOR THE DAY ---------//
         $("#clear").on("click", function(){
             localStorage.clear();
-            initPage()
+           // initPage()
         })
         
         $("#search-input").val("");
-        
+        // ------------------------------------------- //
       });
     });
 
@@ -108,18 +108,18 @@ $(function () {
          // --------- DISPLAY DAY ONE ------------- //
 
         var dayOne = moment().format("M/D/YYYY");
-        // var dayOneIcon = data.weather[0].icon;
-        //var dayOneImg = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + dayOneIcon + ".png");
+         var dayOneIcon = data.list[0].weather.icon;
+       // var dayOneImg = $("<img>").attr("src", "http://openweathermap.org/img/w/" + dayOneIcon + ".png");
         var dayOneTemp = data.list[0].main.temp + " °F";
         var dayOneHumid = data.list[0].main.humidity + "%";
 
         var dayOneDateEl = $("<p>").text(dayOne);
-        // var dayOneImgEl = $("<p>").html(dayOneIcon);
+        var dayOneImgEl = $("<p>").html(dayOneIcon);
         var dayOneTempEl = $("<p>").text("Temp: " + dayOneTemp);
         var dayOneHumidEl = $("<p>").text("Humdity: " + dayOneHumid);
 
             $(".dayOne").append(dayOneDateEl);
-            // $(".dayOne").append(dayOneImgEl);
+             $(".dayOne").append(dayOneImgEl);
             $(".dayOne").append(dayOneTempEl);
             $(".dayOne").append(dayOneHumidEl);
 
@@ -143,6 +143,7 @@ $(function () {
             $(".dayTwo").append(dayTwoTempEl);
             $(".dayTwo").append(dayTwoHumidEl);
 
+
         // --------- DISPLAY DAY THREE ------------- //
 
         var dayThree = moment().add(2, "days").format("M/D/YYYY");
@@ -161,6 +162,7 @@ $(function () {
             $(".dayThree").append(dayThreeTempEl);
             $(".dayThree").append(dayThreeHumidEl);
 
+
         // --------- DISPLAY DAY FOUR ------------- //
 
         var dayFour = moment().add(3, "days").format("M/D/YYYY");
@@ -178,6 +180,7 @@ $(function () {
            //  $(".dayFour").append(dayFourImgEl);
             $(".dayFour").append(dayFourTempEl);
             $(".dayFour").append(dayFourHumidEl);
+            
 
         // --------- DISPLAY DAY FIVE ------------- //
 
@@ -211,7 +214,7 @@ $(function () {
         //------- CLEAR BUTTON FOR THE DAY ---------//
             $("#clear").on("click", function(){
                 localStorage.clear();
-                initPage()
+                // initPage()
         })
 
        
