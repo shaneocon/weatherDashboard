@@ -63,6 +63,20 @@ $(function () {
         $("#temp").text(data.main.temp + "°");
         $("#wind").text(data.wind.speed + " mph");
         $("#humidity").text(data.main.humidity + " %");
+
+         //-------- SAVE ON SUBMIT FUNCTION --------------- //
+    $("#search-form").on("submit", function () {
+        userInput = $(this).siblings(".search-sibling").val().trim();
+        console.log(userInput);
+       
+        localStorage.setItem(JSON.stringify(userInput));
+    })
+
+    //------- CLEAR BUTTON FOR THE DAY ---------//
+        $("#clear").on("click", function(){
+            localStorage.clear();
+            initPage()
+        })
         
         $("#search-input").val("");
         
@@ -108,6 +122,8 @@ $(function () {
             // $(".dayOne").append(dayOneImgEl);
             $(".dayOne").append(dayOneTempEl);
             $(".dayOne").append(dayOneHumidEl);
+
+            
 
          // --------- DISPLAY DAY TWO ------------- //
 
@@ -184,7 +200,19 @@ $(function () {
         
             
 
+        //-------- SAVE ON SUBMIT FUNCTION --------------- //
+        $("#search-input").on("submit", function () {
+            userInput = $(this).siblings(".input-group-append").val();
+            console.log(userInput);
+        
+            localStorage.setItem(JSON.stringify(userInput));
+        })
 
+        //------- CLEAR BUTTON FOR THE DAY ---------//
+            $("#clear").on("click", function(){
+                localStorage.clear();
+                initPage()
+        })
 
        
 

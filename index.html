@@ -6,10 +6,16 @@
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <style>
+            #clear {
+                outline: solid 1px;
+            }
+        </style>
 </head>
 <body>
     <div class="header pt-3 pl-3 bg-dark text-light">
             <h1 class="text-center">Weather Dashboard</h1>
+            <button type="button" class="btn bg-light btn-outline-succes" id="clear">Clear Your Search History</button>
         <div class="row mt-5 bg-light">
             <div class="col-md-4">
                 <div class="card mb-3">
@@ -25,6 +31,7 @@
                                 </div>
                             </div>
                         </form>
+                        
                         <h2 class="card-title h4">Cities</h2>
                         <h3 class="card-subtitle h6 font-weight-normal mb-3 text-muted">Click on a city to view the weather</h3>
                         <button data-city="Austin" class="city btn btn-outline-dark btn-block">
